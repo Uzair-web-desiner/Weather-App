@@ -1,0 +1,45 @@
+body{
+  background-color: rgb(37, 192, 231);
+  align-items: center;
+  justify-self: center;
+}
+.heading{
+  font-size: 50px;
+  margin-left: 50px;
+}
+.search-container{
+  margin-top: 50px;
+  width: 400px;
+}
+.search-container input{
+  padding: 10px;
+  width: 70%;
+}
+.search-container button{
+  padding: 10px;
+  width: 20%;
+  background-color: rgb(26, 111, 190);
+  border: none;
+}
+.Result{
+  margin-top: 50px;
+  background-color: white;
+  width: 300px;
+  height: 200px;
+  margin-left: 30px;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+
+}
+.result-info{
+  margin-top: 30px;
+}
+.city-name{
+  font-size: 50px;
+  color: aqua;
+}
+.temperature{
+  font-size: 50px;
+  color: rgb(253, 48, 93);
+}
