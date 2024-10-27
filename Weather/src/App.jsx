@@ -27,7 +27,7 @@ function App() {
       
   }
   function secondData(){
-    fetch(`https://api.tomorrow.io/v4/weather/forecast?location=${lat},${lon}&apikey=QmoXPK7srAhGqu2uNrhLOoexqggsD7rz`)
+    fetch(`https://api.tomorrow.io/v4/weather/forecast?location=${lat},${lon}&apikey=Ghi38iYmWQGRaDNlNlhcCrpq2ILZcfRs`)
     .then((res)=>res.json())
     .then((finalRes2)=>{
     console.log(finalRes2.timelines.minutely[0].values.temperature)
@@ -38,7 +38,7 @@ function App() {
   let getData=(event)=>{
     toast.info("Wait a few seconds")
     firstData()
-    setTimeout(secondData,2000)
+    setTimeout(secondData,3000)
     
     
     
