@@ -1,7 +1,14 @@
 body{
   background-color: rgb(37, 192, 231);
+  margin: 0;
+  padding: 0;
+}
+.main{
   margin-top: 50px;
-  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ margin-left: 30%;
 }
 .heading{
   font-size: 50px;
@@ -44,4 +51,15 @@ form button{
 .temperature{
   font-size: 50px;
   color: rgb(253, 48, 93);
+}
+.note{
+  width: 100%;
+  background-color: white;
+  margin-top: 14%;
+  height: 29px;
+}
+.note p{
+  font-size: 20px;
+  text-align: center;
+  
 }

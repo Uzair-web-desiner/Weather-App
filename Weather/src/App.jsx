@@ -54,7 +54,8 @@ function App() {
   }
   return (
     <>
-      <ToastContainer />    
+      <ToastContainer />
+      <div className="main">   
         <div className="heading">Weather App</div>
         <form onSubmit={getData}>
           <input type="text" placeholder="Enter City Name" value={city} onChange={(e)=>setcity(e.target.value)}/>
@@ -75,6 +76,12 @@ function App() {
             } 
             
         </div>
+        
+      </div> 
+      <div className="note">
+            <p>First Time When You Check Temperature You Donnot Get Result Due To Rules</p>
+      </div>
+
     </>
   )
 }
