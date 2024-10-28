@@ -3,6 +3,15 @@ import './App.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { FaWind } from "react-icons/fa";
+import { FaCloud } from "react-icons/fa";
+
+
+
+
+
+
+
 function App() {
   let [city,setcity]=useState('')
   let [count,setcount]=useState(false)
@@ -10,6 +19,9 @@ function App() {
   let [lon,setlon]=useState()
   let [temperature,settemperature]=useState()
   let [name,setname]=useState()
+  let [humidity,sethumidity]=useState()
+  let [wind,setwind]=useState()
+  let [cloud,setcloud]=useState()
   function firstData(){
       fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=63080258713e46518fc3fe2acb35b86c`)
       .then((res)=>res.json())
@@ -31,7 +43,11 @@ function App() {
     .then((res)=>res.json())
     .then((finalRes2)=>{
     console.log(finalRes2.timelines.minutely[0].values.temperature)
+    console.log(finalRes2)
     settemperature(finalRes2.timelines.minutely[0].values.temperature)
+    sethumidity(finalRes2.timelines.minutely[0].values.humidity)
+    setwind(finalRes2.timelines.minutely[0].values.windSpeed)
+    setcloud(finalRes2.timelines.minutely[0].values.cloudCover)
     setcount(true)
     })
   }
@@ -55,8 +71,9 @@ function App() {
   return (
     <>
       <ToastContainer />
+      <div className="heading">Weather App</div>
       <div className="main">   
-        <div className="heading">Weather App</div>
+    
         <form onSubmit={getData}>
           <input type="text" placeholder="Enter City Name" value={city} onChange={(e)=>setcity(e.target.value)}/>
           <button>Search</button>
@@ -65,14 +82,35 @@ function App() {
             
             {count==true
             ?
-                <div className="result-info">
-                  Temperature of
-                  <div className="city-name">{name}</div>
-                  is
-                  <div className="temperature">{temperature}oC</div>
-                </div>
+                <>
+                  <div className="result-heading">Today Weather</div>
+                  <div className="result-info">
+                    <div className="weather">
+                       {temperature}oC
+                    </div>
+                    <div className="other-info">
+                      <div className="extra-info">
+                            <div className="info-heading">City</div>
+                            <div className="info-result">{name}</div>
+                      </div>
+                      <div className="extra-info">
+                            <div className="info-heading">humidity</div>
+                            <div className="info-result">{humidity}</div>
+                      </div>
+                      <div className="extra-info">
+                            <div className="info-heading">windSpeed</div>
+                            <div className="info-result">{wind}  <FaWind/> </div>
+                      </div>
+                      <div className="extra-info">
+                            <div className="info-heading">cloud</div>
+                            <div className="info-result">{cloud} <FaCloud/></div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </>
               :
-              "No Data Found"
+              <div className="nodata">No Data Found</div>
             } 
             
         </div>
